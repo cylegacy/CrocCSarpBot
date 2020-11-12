@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30523.141
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrocCSarpBot", "CrocCSarpBot\CrocCSarpBot.csproj", "{ECE6B492-B3C7-45C6-B537-BB4D4A4C8DAB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrocCSarpBotOld", "CrocCSarpBot\CrocCSarpBotOld.csproj", "{ECE6B492-B3C7-45C6-B537-BB4D4A4C8DAB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BotControlPanel", "..\..\..\Git\csharpcroc20\CrocCSharpBot\BotControlPanel\BotControlPanel.csproj", "{5C2C7658-43F3-466E-9482-11C684009949}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrocCSharpBot", "..\..\..\Git\csharpcroc20\CrocCSharpBot\CrocCSharpBot\CrocCSharpBot.csproj", "{A123BC98-D2D4-4ABF-9DC9-7762DD243533}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{ECE6B492-B3C7-45C6-B537-BB4D4A4C8DAB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ECE6B492-B3C7-45C6-B537-BB4D4A4C8DAB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ECE6B492-B3C7-45C6-B537-BB4D4A4C8DAB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5C2C7658-43F3-466E-9482-11C684009949}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5C2C7658-43F3-466E-9482-11C684009949}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5C2C7658-43F3-466E-9482-11C684009949}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5C2C7658-43F3-466E-9482-11C684009949}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A123BC98-D2D4-4ABF-9DC9-7762DD243533}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A123BC98-D2D4-4ABF-9DC9-7762DD243533}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A123BC98-D2D4-4ABF-9DC9-7762DD243533}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A123BC98-D2D4-4ABF-9DC9-7762DD243533}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -31,5 +31,32 @@ namespace CrocCSarpBot.Properties {
                 return ((string)(this["Token"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("C:\\botstate.xml")]
+        public string FileName {
+            get {
+                return ((string)(this["FileName"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1000")]
+        public double TimerTickInMilliseconds {
+            get {
+                return ((double)(this["TimerTickInMilliseconds"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("5")]
+        public double TimeOutInSeconds {
+            get {
+                return ((double)(this["TimeOutInSeconds"]));
+            }
+        }
     }
 }

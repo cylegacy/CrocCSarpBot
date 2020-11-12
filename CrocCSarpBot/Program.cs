@@ -1,23 +1,21 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Reflection;
+using System.ServiceProcess;
+using System.Configuration.Install;
+using CrocCSarpBot;
 
-namespace CrocCSarpBot
+namespace CrocCSharpBot
 {
-
-
     /// <summary>
     /// Главный класс приложения
     /// </summary>
     class Program
     {
-
         /// <summary>
         /// Ведение журнала событий
         /// </summary>
-        private static NLog.Logger _log = NLog.LogManager.GetCurrentClassLogger();
+        private static NLog.Logger log = NLog.LogManager.GetCurrentClassLogger();
 
         /// <summary>
         /// Точка входа в приложение
@@ -27,26 +25,65 @@ namespace CrocCSarpBot
         {
             try
             {
-                var bot = new Bot();
-                bot.Run();
-                _log.Info("Запуск бота в консольном режиме.");
+                // Первый параметр командной строки
+                string arg1 = args.Count() > 0 ? args[0] : string.Empty;
+                // Приведение к строчным буквам
+                arg1 = arg1.ToLower();
+
+                // Имя исполняемого файла сервиса
+                string name = Assembly.GetEntryAssembly().Location;
+
+                switch (arg1)
+                {
+                    case "console":
+                        Bot bot;
+                        bot = new Bot();
+                        bot.Start();
+                        log.Info("Запуск бота в консольном режиме");
+                        break;
+
+                    case "install":
+                        // Установка службы операционной системы
+                        ManagedInstallerClass.InstallHelper(new string[] { name });
+                        break;
+
+                    case "uninstall":
+                    case "remove":
+                    case "delete":
+                        // Удаление службы операционной системы
+                        ManagedInstallerClass.InstallHelper(new string[] { "/u", name });
+                        break;
+
+                    case "":
+                        var svc = new BotService();
+                        ServiceBase.Run(svc);
+                        break;
+
+                    default: // другой параметр
+                        Console.WriteLine($"Неправильный параметр: {arg1}");
+                        // [!] дописать вывод справки
+                        break;
+                }
+
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
-                // Отображание исключения, включая все вложенные исключения
+                // Отображение сообщения, включая все вложенные исключения
                 do
                 {
-                    Console.WriteLine(e.Message);
-                    e = e.InnerException;
-                } while (e != null);
-                
+                    log.Fatal(ex);
+                    ex = ex.InnerException;
+                }
+                while (ex != null);
             }
             finally
             {
-                _log.Info("Нажмите Enter для завершения.");
-                Console.ReadLine();
+                if (Environment.UserInteractive)
+                {
+                    Console.WriteLine("Нажмите Enter для завершения");
+                    Console.ReadLine();
+                }
             }
-
         }
     }
 }
